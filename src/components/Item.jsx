@@ -27,14 +27,14 @@ function handleDownvote() {
       <p>{video.views} views | Uploaded {video.createdAt}</p>
       <button  onClick={handleUpvote}>{upvotes}👍</button>
       <button onClick={handleDownvote}>{downvotes}👎</button>
-      <h3> 2 Comments:</h3>
-      <ul>
-        {video.comments.map(comment => (
-          <li key={comment.id}>
-            <strong>{comment.user}:</strong> {comment.comment}
-          </li>
-        ))}
-      </ul>
+      {video.comments.map((comment)=>{
+        return (
+            <div key={comment.id}>
+                <h3>{comment.user}</h3>
+                <p>{comment.comment}</p>
+                </div>
+        )
+      })}
 
     </div>
   )
